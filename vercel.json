@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci --include=dev",
+  "buildCommand": "npm run build",
+  "outputDirectory": "vercel-public",
+  "functions": {"api/index.mjs": {"maxDuration": 30}},
+  "routes": [
+    {"src": "/(.*)", "headers": {"X-Content-Type-Options": "nosniff", "X-Frame-Options": "DENY", "Referrer-Policy": "same-origin"}, "continue": true},
+    {"src": "/api/(.*)", "dest": "/api/index?__lyca_path=/api/$1"},
+    {"src": "/(login|logout|signin-with-chatgpt|signout-with-chatgpt)", "dest": "/api/index?__lyca_path=/$1"},
+    {"src": "/customer(?:/(.*))?", "dest": "/api/index?__lyca_path=/customer/$1"},
+    {"handle": "filesystem"},
+    {"src": "/.*\\.[^/]+$", "dest": "/404.html", "status": 404},
+    {"src": "/.*", "dest": "/index.html"}
+  ]
+}

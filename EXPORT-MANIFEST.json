@@ -1,0 +1,63 @@
+{
+  "database": "Neon PostgreSQL",
+  "uploads": "Vercel Blob (Vercel deployments); Cloudflare R2 (legacy hosting)",
+  "projects": {
+    "customer-and-backend": {
+      "commit": "633cc96e018624d18a2f9a35b54f59ae45c8d8fa",
+      "files": 392
+    },
+    "admin-site": {
+      "commit": "d39d6ee525bc51972c8809dece35a44ee1ea270b",
+      "files": 221
+    }
+  },
+  "export_adjustments": [
+    "Windows npm.cmd execution compatibility in the customer build helper.",
+    "Added blank admin environment template and bundle instructions.",
+    "Added a standalone local customer/admin workspace reusing the production API route source and SQL repository.",
+    "Included exact locked portable JavaScript/WebAssembly runtime packages and licenses.",
+    "Added Windows and macOS/Linux launchers, cross-platform source setup/repair, and Vite native binding verification.",
+    "Admin customer link now follows the configured customer redirect.",
+    "Explicitly include optional native dependencies when rebuilding the customer source.",
+    "Fixed missing /customer/fonts and /customer/favicon.svg resources by copying the complete Vite output; added font MIME type and HTTP asset regression coverage.",
+    "Permanent version-checked product deletion and confirmed bulk deletion, without restoring demo seed fallbacks.",
+    "Persisted category management shared by the admin, customer catalogue and enquiry selector.",
+    "Empty products on fresh local installation; preserved existing local databases can be cleared using the new admin control.",
+    "Customer Back button with internal-history navigation and direct-link fallback.",
+    "Repeatable PostgreSQL setup SQL, Node initializer and detailed Neon/hosting connection guide.",
+    "Added category editing, user photograph upload/replace, version-checked deletion and explicitly confirmed ingredient cascade.",
+    "One-time category defaults and repeatable schema upgrade prevent deleted categories from returning.",
+    "Shared multi-word Unicode-aware search across admin and customer category/product details; clear and empty-result behavior verified with DOM interactions.",
+    "Customer homepage/atelier category cards use live category images and omit deleted category records.",
+    "Added separate Vercel administrator/customer deployments selected by server environment role, sharing Neon and public Blob storage.",
+    "Added standalone password-hash administrator sign-in, expiring signed sessions, per-origin authorization, and PostgreSQL-backed sign-in throttling.",
+    "Added root Vercel build/route configuration, locked minimal dependencies, administrator credential helper, role-specific environment templates, and full deployment guide.",
+    "Normalized legacy default category group objects into editable group names."
+  ],
+  "original_exported": "2026-10-23",
+  "packaged": "2026-10-25",
+  "local_runtime": {
+    "database": "Persistent PGlite PostgreSQL",
+    "uploads": "Local files in .local-data/uploads",
+    "entrypoint": "START-WINDOWS.cmd",
+    "prebuilt_assets": true,
+    "portable_runtime_dependencies_included": true,
+    "live_credentials_included": false,
+    "initial_ingredients": 0,
+    "initial_legacy_products": 0,
+    "dynamic_categories": true,
+    "category_deletion": true,
+    "custom_category_photographs": true
+  },
+  "vercel": {
+    "entrypoint": "api/index.mjs",
+    "configuration": "vercel.json",
+    "separate_deployments": true,
+    "role_variable": "LYCA_SITE_ROLE",
+    "shared_database": "Same Neon DATABASE_URL in both projects",
+    "shared_photos": "Same public Vercel Blob store",
+    "admin_auth": "Password hash and signed secure HttpOnly cookie",
+    "photo_limit_mb": 4,
+    "live_deployed": false
+  }
+}

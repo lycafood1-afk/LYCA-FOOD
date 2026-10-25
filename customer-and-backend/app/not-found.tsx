@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <section className="section not-found"><p className="eyebrow">404 · A MISSING INGREDIENT</p><h1>Let’s find what<br/>you’re looking for.</h1><p>This page may have moved, or the ingredient may no longer be in our catalogue.</p><div><Link href="/products" className="button">Explore ingredients</Link><Link href="/" className="button outline">Back to home</Link></div></section>}

@@ -1,0 +1,18 @@
+{
+  "name": "lyca-vercel",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": "22.x"},
+  "scripts": {
+    "build": "node vercel-runtime/build.mjs",
+    "test": "node --test shared/search.test.mjs vercel-runtime/test.mjs",
+    "admin:setup": "node scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "1.2.0",
+    "@vercel/blob": "2.8.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {"esbuild": "^0.25.0"}
+}

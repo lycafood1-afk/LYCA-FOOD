@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export function Legal({title,children}:{title:string;children:React.ReactNode}){return <section className="section legal-page"><nav className="breadcrumbs"><Link href="/">Home</Link><span>/</span><span>{title}</span></nav><p className="eyebrow">LYCA FOOD INGREDIENTS SUPPLIES</p><h1>{title}</h1><p className="fineprint">Last updated: 7 October 2026</p><div className="legal-copy">{children}</div></section>}

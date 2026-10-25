@@ -1,0 +1,13 @@
+.local-data/
+local-runtime/node_modules/
+**/node_modules/
+**/.sites-runtime/
+**/.wrangler/
+**/.env
+**/.env.local
+**/.dev.vars
+vercel-public/
+.vercel/
+**/.env.production
+**/.env.*
+!**/.env.example

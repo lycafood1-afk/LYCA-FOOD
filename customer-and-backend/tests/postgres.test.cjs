@@ -1,0 +1,82 @@
+const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict');
+const {PGlite}=require('@electric-sql/pglite');
+const root=path.resolve(__dirname,'..'),ts=require(root+'/node_modules/typescript'),zod=require(root+'/node_modules/zod');
+function adapter(db){return {query(text,params=[]){return {spec:{text,params},then(resolve,reject){return db.query(text,params).then(r=>r.rows).then(resolve,reject)}}},async transaction(queries){return db.transaction(async tx=>{const results=[];for(const {spec} of queries)results.push((await tx.query(spec.text,spec.params)).rows);return results})}}}
+(async()=>{
+  const {preparePostgresMigration,migratePostgres}=await import(root+'/scripts/postgres-migration.mjs');
+  const seed=JSON.parse(fs.readFileSync(root+'/lib/ingredients-seed.json','utf8'));
+  const pg=new PGlite();await pg.waitReady;const sql=adapter(pg);
+  const first=seed.ingredients[0];
+  const snapshot={tables:{ingredients:[{id:first.id,data:JSON.stringify({...first,description:'Preserved Unicode தமிழ் ingredient detail'}),status:'archived',version:3,updated_at:'2026-10-23T08:00:00.000Z'},{id:'migration-draft',data:JSON.stringify({...first,id:'migration-draft',name:'Migration draft'}),status:'draft',version:2,updated_at:'2026-10-23T08:01:00.000Z'}],settings:[{id:'public',value:JSON.stringify({serviceId:'test-service',templateId:'test-template',publicKey:'public-example',responsePromise:'Test fixture text'})}],products:[]}};
+  const prepared=preparePostgresMigration(snapshot);
+  const migration=await migratePostgres(sql,prepared);assert.equal(migration.ingredients,109);assert.equal(migration.products,94);assert.equal(migration.settings,1);
+  let row=(await pg.query('SELECT * FROM lyca.ingredients WHERE id=$1',[first.id])).rows[0];assert.equal(row.version,3);assert.equal(row.status,'archived');assert(row.data.description.includes('தமிழ்'));
+  const rerun=await migratePostgres(sql,prepared);assert.equal(rerun.alreadyApplied,true);
+  await assert.rejects(()=>migratePostgres(sql,preparePostgresMigration()),/different snapshot/);
+  assert.throws(()=>preparePostgresMigration({tables:{ingredients:[{...snapshot.tables.ingredients[0],version:-1}]}}),/invalid/);
+  await pg.query('TRUNCATE lyca.ingredients,lyca.products,lyca.settings,lyca.migration_runs');
+  await migratePostgres(sql,preparePostgresMigration());
+  let legacyCalls=0;const logs=[];const bucketObjects=new Map();
+  const environment={DATABASE_URL:'postgresql://fixture:fixture@fixture.neon.tech/neondb',CATALOGUE_DATABASE:'postgresql',CATALOGUE_READ_ONLY:'false',ADMIN_BRIDGE_KEY:'fixture-bridge',ADMIN_EMAIL:'owner@example.com',DB:{prepare(){legacyCalls++;throw Error('Unexpected legacy database access')}},BUCKET:{async put(key,bytes,meta){bucketObjects.set(key,{bytes,meta})},async get(key){const value=bucketObjects.get(key);return value?{body:value.bytes,httpMetadata:value.meta.httpMetadata}:null}}};
+  const context=vm.createContext({console:{...console,error:(...args)=>logs.push(args)},Request,Response,File,FormData,URL,Uint8Array,TextEncoder,TextDecoder,crypto:globalThis.crypto,AbortSignal,setTimeout,clearTimeout});
+  const cache=new Map();
+  async function synthetic(id,values){if(cache.has(id))return cache.get(id);const m=new vm.SyntheticModule(Object.keys(values),function(){for(const [k,v]of Object.entries(values))this.setExport(k,v)},{context,identifier:id});cache.set(id,m);return m;}
+  async function load(id){
+    if(cache.has(id))return cache.get(id);
+    if(id==='zod')return synthetic(id,{z:zod.z});
+    if(id==='@neondatabase/serverless')return synthetic(id,{neon:()=>sql});
+    if(id==='cloudflare:workers')return synthetic(id,{env:environment});
+    if(id.endsWith('/app/chatgpt-auth.ts'))return synthetic(id,{getChatGPTUser:async()=>null});
+    if(id.endsWith('.json'))return synthetic(id,{default:JSON.parse(fs.readFileSync(id,'utf8'))});
+    const code=ts.transpileModule(fs.readFileSync(id,'utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+    const m=new vm.SourceTextModule(code,{context,identifier:id});cache.set(id,m);
+    await m.link((specifier,referencing)=>{let file=specifier.startsWith('@/')?path.join(root,specifier.slice(2)):specifier.startsWith('.')?path.resolve(path.dirname(referencing.identifier),specifier):specifier;if(file.startsWith(root)&&!path.extname(file))file+='.ts';return load(file)});return m;
+  }
+  for(const shared of ['/db/postgres.ts','/db/repository.ts','/lib/store.ts','/lib/ingredients.ts']){const module=await load(root+shared);if(module.status!=='evaluated')await module.evaluate();}
+  const route=await load(root+'/app/api/ingredients/route.ts');await route.evaluate();
+  const productRoute=await load(root+'/app/api/products/route.ts');await productRoute.evaluate();
+  const settingsRoute=await load(root+'/app/api/settings/route.ts');await settingsRoute.evaluate();
+  const uploadRoute=await load(root+'/app/api/upload/route.ts');await uploadRoute.evaluate();
+  const mediaRoute=await load(root+'/app/api/media/[key]/route.ts');await mediaRoute.evaluate();
+  const customerFeed=await load(root+'/app/api/catalogue/route.ts');await customerFeed.evaluate();
+  const base='https://catalogue.example';
+  const request=(path,body,admin=true,origin=base)=>new Request(base+path,{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(admin?{'x-lyca-admin-key':'fixture-bridge'}:{})},body:JSON.stringify(body)});
+  const get=async(admin=false)=>{const r=await route.namespace.GET(new Request(base+'/api/ingredients'+(admin?'?admin=1':''),{headers:admin?{'x-lyca-admin-key':'fixture-bridge'}:{}}));assert.equal(r.status,200);return r.json()};
+  const post=(ingredient,expectedVersion,create=false)=>route.namespace.POST(request('/api/ingredients',{ingredient,expectedVersion,create}));
+  const initial=await get();assert.equal(initial.ingredients.length,108);assert.equal(initial.storage,'postgresql');
+  const publicFeed=await customerFeed.namespace.GET(new Request(base+'/api/catalogue?admin=1'));assert.equal(publicFeed.status,200);assert.equal((await publicFeed.json()).storage,'postgresql');
+  assert.equal((await customerFeed.namespace.GET(new Request(base+'/api/catalogue?image=invalid-path'))).status,400);
+  assert.equal((await route.namespace.GET(new Request(base+'/api/ingredients?admin=1'))).status,403);
+  assert.equal((await route.namespace.POST(request('/api/ingredients',{},false))).status,403);
+  assert.equal((await route.namespace.POST(request('/api/ingredients',{},true,'https://other.example'))).status,403);
+  const sample={id:'postgres-test-coconut',name:'PostgreSQL test coconut',category:'coconut-products',group:'Coconut Range',description:'PostgreSQL stored ingredient description.',image:'/images/coconut.webp',imageAlt:'Coconut ingredient',specifications:'Test specification',partner:'Medibel',status:'draft'};
+  assert.equal((await post(sample,0,true)).status,200);assert.equal((await get()).ingredients.some(p=>p.id===sample.id),false);
+  assert.equal((await post({...sample,status:'published'},1)).status,200);assert.equal((await get()).ingredients.length,109);
+  assert.equal((await post({...sample,status:'published',name:'Stale overwrite'},1)).status,409);
+  const race=await Promise.all([post({...sample,status:'published',name:'Concurrent one'},2),post({...sample,status:'published',name:'Concurrent two'},2)]);assert.deepEqual(race.map(r=>r.status).sort(),[200,409]);
+  let current=(await get(true)).ingredients.find(p=>p.id===sample.id);assert.equal(current.version,3);
+  const form=new FormData();const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLbtAAAAABJRU5ErkJggg==','base64');form.append('image',new File([png],'ingredient.png',{type:'image/png'}));
+  let r=await uploadRoute.namespace.POST(new Request(base+'/api/upload',{method:'POST',headers:{Origin:base,'x-lyca-admin-key':'fixture-bridge'},body:form}));assert.equal(r.status,200);const photo=await r.json();
+  r=await mediaRoute.namespace.GET(new Request(base+photo.url),{params:Promise.resolve({key:photo.url.split('/').pop()})});assert.equal(r.status,200);assert.deepEqual(Buffer.from(await r.arrayBuffer()),png);
+  r=await customerFeed.namespace.GET(new Request(base+'/api/catalogue?image='+photo.url.split('/').pop()));assert.equal(r.status,200);assert.deepEqual(Buffer.from(await r.arrayBuffer()),png);
+  assert.equal((await post({...current,image:photo.url},3)).status,200);
+  current=(await get(true)).ingredients.find(p=>p.id===sample.id);assert.equal(current.image,photo.url);
+  assert.equal((await post({...current,status:'archived'},4)).status,200);assert.equal((await get()).ingredients.length,108);
+  const contact={serviceId:'fixture-service',templateId:'fixture-template',publicKey:'fixture-public',responsePromise:'Fixture only'};
+  assert.equal((await settingsRoute.namespace.POST(request('/api/settings',contact))).status,200);assert.deepEqual(await(await settingsRoute.namespace.GET()).json(),contact);
+  const product={id:'postgres-product-fixture',name:'Legacy product fixture',category:'coconut',description:'A fixture to verify legacy product compatibility.',image:'/images/coconut.webp',forms:'Powder',applications:['Beverages'],details:''};
+  assert.equal((await productRoute.namespace.POST(request('/api/products',product))).status,200);assert((await(await productRoute.namespace.GET(new Request(base+'/api/products'))).json()).products.some(p=>p.id===product.id));
+  environment.CATALOGUE_READ_ONLY='true';assert.equal((await post({...sample,id:'locked-save'},0,true)).status,503);assert.equal((await get()).storage,'postgresql');environment.CATALOGUE_READ_ONLY='false';
+  environment.DATABASE_URL='';assert.equal((await route.namespace.GET(new Request(base+'/api/ingredients'))).status,503);assert.equal(legacyCalls,0);
+  assert(!JSON.stringify(logs).includes('postgresql://'));
+  environment.DATABASE_URL='postgresql://fixture:fixture@fixture.neon.tech/neondb';
+  const remove=body=>route.namespace.DELETE(new Request(base+'/api/ingredients',{method:'DELETE',headers:{Origin:base,'x-lyca-admin-key':'fixture-bridge','Content-Type':'application/json'},body:JSON.stringify(body)}));
+  assert.equal((await remove({id:first.id,expectedVersion:999})).status,409);
+  assert.equal((await remove({all:true,confirmation:'DELETE ALL PRODUCTS'})).status,200);
+  assert.equal((await get()).ingredients.length,0);
+  assert.equal((await(await productRoute.namespace.GET(new Request(base+'/api/products'))).json()).products.length,0);
+  assert.equal((await post({...seed.ingredients[0],description:'Deleted edit'},0)).status,404);
+
+  const report={engine:'PostgreSQL (PGlite)',baselineIngredients:108,legacyProducts:94,migrationPreservesDraftsArchivesVersionsAndUnicode:true,idempotentMigration:true,refusesDifferentSnapshot:true,publishAndArchiveSync:true,concurrentEditsProtected:true,photosPreservedInR2:true,legacyProductsAndSettings:true,migrationWriteLock:true,noSilentD1Fallback:true,credentialSafeErrors:true,bulkDeletesExistingSeededCatalogue:true,noDeletedSeedFallback:true};
+console.log(JSON.stringify(report,null,2));await pg.close();
+})().catch(error=>{console.error(error);process.exit(1)});

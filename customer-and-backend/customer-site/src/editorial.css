@@ -1,0 +1,69 @@
+/* LYCA / ingredient atelier. Editorial image treatment over the existing motion system. */
+@font-face{font-family:LycaEditorial;src:url('/fonts/editorial-italic.ttf') format('truetype');font-style:italic;font-weight:500;font-display:swap}
+:root{--bg:#24174c;--surface:#171127;--surface-raised:#251b3d;--image-gold:#d4bc87;--line:#e5e3f72e}
+body{background:var(--bg)}
+.webgl-world{background:radial-gradient(ellipse at 75% 25%,#4d3689,#24174c 66%,#171127)}
+.film-heading h1 em,.atelier-intro h2 em,.footer-head h2 em{font-family:LycaEditorial,Georgia,serif;font-weight:500;letter-spacing:-.045em}
+.film-heading h1 em{font-size:1.2em;line-height:.8}
+/* Colour lives in the ingredient. Violet and champagne are confined to framing. */
+.film-card{border-color:#d4bc8770;border-radius:9px;box-shadow:0 30px 80px #0b071c80,0 0 0 5px #eee6f208}
+.film-photo:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,#2b17502b,transparent 45%,#170c3740);box-shadow:inset 0 0 70px #150c2920}
+.film-glass{border-radius:6px;background:linear-gradient(115deg,#201334d9,#100c1ee8);border-color:#d4bc8750}
+.film-glass h2{font-family:LycaEditorial,Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(29px,2.8vw,46px);letter-spacing:-.025em}
+.film-card__flare{opacity:.32}
+.collection-panel,.statement-photo,.about-story__image{border-radius:8px;border-color:#d4bc8750}
+.collection-image img,.collection-panel:hover img{filter:none}
+.collection-image:after{background:linear-gradient(180deg,#2412450f,transparent 38%,#130d29e8)}
+.collection-caption p{color:var(--image-gold)}
+.page-hero__visual{border-radius:200px 200px 8px 8px;border:1px solid #d4bc8770;padding:7px;background:#160d2c}
+.page-hero__visual img{border-radius:inherit}
+.page-hero__visual-dot{background:var(--image-gold)}
+.page-hero__visual:after{border-radius:inherit;background:linear-gradient(135deg,#3c1d651f,transparent 60%);mix-blend-mode:normal}
+.product-category__hero{border-radius:8px;border:1px solid #d4bc8745}
+.product-category__hero>img{object-position:70% 45%;filter:none}
+.product-category__hero:after{background:linear-gradient(90deg,#100b23f5 0%,#160f2bd9 36%,#1d10314d 72%,#1b0d3020)}
+.ingredient-provenance{position:absolute;right:24px;top:22px;z-index:2;font-size:8px;letter-spacing:.14em;color:#f7ecd5;border:1px solid #d4bc8755;padding:8px 12px;background:#160e2bd9;max-width:calc(100% - 48px)}
+.industry-card__image img{object-position:50% 50%}
+.industry-card:nth-child(5) .industry-card__image img{object-position:50% 77%}
+.industry-card:nth-child(6) .industry-card__image img{object-position:50% 58%}
+.industry-card,.industry-card__image{border-radius:8px 8px 0 0}
+.brand-statement{background:linear-gradient(135deg,#1b133b99,#130d2988)}
+/* An original, keyboard-accessible visual index of the brochure's seven families. */
+.atelier{padding-block:50px 110px}
+.atelier-intro{border-top:1px solid #d4bc8755;padding-top:28px;display:grid;grid-template-columns:1.4fr 1fr;align-items:end;gap:0 70px;margin-bottom:50px}
+.atelier-intro>.eyebrow{grid-column:1/-1;color:var(--image-gold)}
+.atelier-intro h2{font-size:clamp(38px,4.7vw,69px);line-height:1.1;letter-spacing:-.045em;margin:12px 0 0;font-weight:500}
+.atelier-intro h2 em{display:block;font-size:1.2em;color:#f5e8cc}
+.atelier-intro>p:last-child{color:var(--muted);font-size:14px;max-width:300px;margin:0;line-height:1.9}
+.atelier-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:75px;align-items:center}
+.atelier-menu{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.atelier-menu button{appearance:none;display:flex;align-items:center;gap:20px;border:0;border-bottom:1px solid var(--line);background:transparent;color:#d2cbe4;text-align:left;font:500 clamp(13px,1.3vw,19px)/1.4 Manrope,Arial,sans-serif;padding:23px 12px;min-height:70px;cursor:pointer;transition:color .25s,background .25s}
+.atelier-index{font-size:10px;color:var(--image-gold);letter-spacing:.08em;flex:none}
+.atelier-menu button svg{margin-left:auto;flex:none;opacity:.3;transition:opacity .25s,transform .25s}
+.atelier-menu button[aria-selected=true]{color:#fefefc;background:linear-gradient(90deg,#d4bc8716,transparent);box-shadow:inset 2px 0 var(--image-gold)}
+.atelier-menu button[aria-selected=true] svg{opacity:1;color:var(--lime);transform:translate(2px,-2px)}
+.atelier-menu button:hover{color:white;background:#ffffff08}
+.atelier-menu button:focus-visible,.atelier-exhibit:focus-visible{outline:2px solid var(--lime);outline-offset:5px}
+.atelier-photograph{position:relative;height:460px;overflow:hidden;border:1px solid #d4bc8766;background:#100c1b;border-radius:220px 220px 6px 6px;animation:atelier-in .45s ease both}
+.atelier-photograph img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.atelier-photograph:after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,#35184c12,transparent 50%,#150c2a99);pointer-events:none}
+.atelier-plate{position:absolute;bottom:20px;left:24px;z-index:1;font-size:10px;letter-spacing:.2em;display:flex;align-items:baseline;gap:9px;color:#f6e7c7}
+.atelier-plate i{font:italic 21px LycaEditorial,Georgia,serif;letter-spacing:0}
+.atelier-plate b{font-weight:400;border-left:1px solid #d4bc8766;margin-left:6px;padding-left:15px}
+.atelier-caption{display:flex;align-items:center;gap:25px;min-height:120px;padding-block:22px;border-bottom:1px solid #d4bc8745}
+.atelier-caption p{font-size:9px;letter-spacing:.12em;color:var(--image-gold);margin:0 0 10px;line-height:1.6}
+.atelier-caption span{font-size:12px;color:var(--muted);line-height:1.8;display:block;max-width:440px}
+.atelier-caption>a{flex:none;margin-left:auto;width:46px;height:46px;border:1px solid #d4bc8766;border-radius:50%;display:grid;place-items:center;color:var(--lime);transition:background .25s}
+.atelier-caption>a:hover{background:#d4ff4d22}
+@keyframes atelier-in{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:1020px){.atelier-layout{gap:35px}.atelier-photograph{height:420px}.atelier-menu button{padding:19px 12px;gap:14px}.atelier-intro{gap:0 35px}}
+@media(max-width:700px){
+ .film-card{border-radius:8px}.film-glass{border-radius:5px}.film-glass h2{font-size:30px}.film-heading h1 em{font-size:1.15em}
+ .atelier{padding-block:25px 65px}.atelier-intro{display:block;margin-bottom:28px;padding-top:22px}.atelier-intro h2{font-size:40px}.atelier-intro>p:last-child{font-size:12px;margin-top:22px;max-width:300px}
+ .atelier-layout{grid-template-columns:minmax(0,1fr);gap:26px}.atelier-menu{display:grid;grid-template-columns:1fr 1fr;gap:0 15px;border:0}.atelier-menu button{font-size:11px;gap:9px;padding:13px 8px;min-height:58px;border-top:1px solid var(--line);border-bottom:0}.atelier-menu button svg{width:14px}.atelier-index{font-size:8px}
+ .atelier-photograph{height:380px;border-radius:180px 180px 6px 6px}.atelier-caption{min-height:110px;gap:15px}.atelier-caption p{font-size:8px}.atelier-caption span{font-size:11px}.atelier-caption>a{width:42px;height:42px}
+ .ingredient-provenance{top:15px;right:18px;font-size:7px;max-width:calc(100% - 36px);padding:6px 8px}
+ .product-category__hero>div{padding-top:70px}.product-category__hero:after{background:linear-gradient(90deg,#120b23e8,#170e2ab3 60%,#1a103375)}
+ .page-hero__visual{padding:5px}
+}
+@media(prefers-reduced-motion:reduce){.atelier-photograph{animation:none}.atelier-menu button,.atelier-menu button svg{transition:none}.webgl-world{background:radial-gradient(ellipse at 75% 25%,#4d3689,#24174c 66%,#171127)}}

@@ -1,0 +1,31 @@
+/* Keep imagery and brand styling; remove perpetual paint and backdrop dependencies. */
+.site-header,.site-header.is-scrolled,.mobile-nav,.film-glass,.enquiry-form,.office-card,.values-grid article,.network-summary,.product-toolbar,.cta-section,.process-card,.button--secondary,.circle-arrow,.film-pagination button,.industry-card__image>span{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.site-header,.site-header.is-scrolled{background:linear-gradient(120deg,#1b162bee,#100e1ef7)}
+.mobile-nav{background:#171127}
+.film-glass{background:linear-gradient(115deg,#201334eb,#100c1ef4)}
+.transition-lens,.fx-cursor-glow,.fx-cursor-ring{display:none!important}
+.has-cursor-fx a,.has-cursor-fx button{cursor:pointer}
+body::after{display:none}
+/* Reveals and hover motion stay; decorative photo drift and text sheen rest. */
+.collection-image img,.industry-card__image img,.statement-photo img,.application-cinema__image img,.product-category__hero img,.about-story__image img,.page-hero__visual,.page-hero__visual img,.fx-ready .kinetic.is-in .kinetic__word{animation:none!important}
+.film-light-leak i{animation:none!important;will-change:auto}
+.film-heading h1 .line>span,.title-card,.title-card.is-opening,.title-card__mark,.title-card__name span,.title-card__name b{filter:none!important}
+.film-photo,.film-photo__soft{will-change:auto}
+.route-surface{transform:none!important;clip-path:none!important;will-change:auto!important}
+/* Distant photo-heavy cards can skip layout/paint until approached. */
+.industry-card,.office-card{content-visibility:auto;contain-intrinsic-size:auto 520px}
+@media(max-width:700px){.film-card__flare{display:none}.film-card{box-shadow:0 16px 35px #0b071c66}.site-header,.site-header.is-scrolled{background:#171429f5}}
+
+html[data-fx-detail="balanced"] .film-card,html[data-fx-detail="balanced"] .film-stage{transform-style:flat;perspective:none}
+html[data-fx-detail="balanced"] .film-gallery{perspective:none;mask-image:none}
+html[data-fx-detail="balanced"] .film-card__flare{display:none}
+@media(min-width:701px){html[data-fx-detail="balanced"] .film-gallery{clip-path:inset(0 0 0 45%)}}
+@media(max-width:700px){.film-gallery,.film-stage{perspective:none}.film-card{transform-style:flat}}
+
+/* A brief brand opening avoids a multi-second wait before the first interaction. */
+.film-bars i{transition:height .45s var(--ease-film)}
+.title-card.is-opening{transition:opacity .65s var(--ease-soft),transform .65s var(--ease-film)}
+.title-card__name span,.title-card__name b{animation-duration:.55s}
+.title-card__name span:nth-child(1){animation-delay:.08s}.title-card__name span:nth-child(2){animation-delay:.16s}.title-card__name span:nth-child(3){animation-delay:.24s}.title-card__name span:nth-child(4){animation-delay:.32s}.title-card__name b{animation-delay:.4s}
+.title-card__mark{animation-duration:.55s;animation-delay:0s}.title-card p{animation-duration:.5s;animation-delay:.25s}.title-card__line{animation-duration:.6s;animation-delay:.2s}
+.is-cold-open .film-heading h1 .line>span{animation-delay:0s}.is-cold-open .film-heading h1 .line:nth-child(2)>span{animation-delay:.12s}

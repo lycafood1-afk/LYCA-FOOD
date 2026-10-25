@@ -1,0 +1,88 @@
+/* LYCA / royal purple, glass surfaces and a permanent aurora backdrop. */
+:root{--bg:#5a1f82;--surface:#642f8999;--surface-raised:#75449799;--purple:#5a1f82;--purple-bright:#d4ff4d;--plum-dark:#431568;--lavender:#69368f;--lavender-mid:#8555a6;--ink:#fffdfd;--muted:#eee2f5;--line:#f5dfff38;--image-gold:#eedec0}
+html,body,#root{background-color:#5a1f82}
+body{background:#5a1f82;color:var(--ink)}
+.site-atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#5a1f82;isolation:isolate}
+.aurora-ribbon{position:absolute;inset:auto;border-radius:50%;pointer-events:none;will-change:transform;opacity:.68}
+.aurora-ribbon--one{width:85vw;height:110vh;top:-35%;right:-20%;background:radial-gradient(ellipse,#bf7de75c,transparent 67%);animation:royal-aurora-one 24s ease-in-out infinite alternate}
+.aurora-ribbon--two{width:80vw;height:110vh;bottom:-55%;left:-25%;background:radial-gradient(ellipse,#c5f28d38,transparent 67%);animation:royal-aurora-two 29s ease-in-out infinite alternate}
+.aurora-ribbon--three{width:70vw;height:85vh;top:25%;left:18%;background:radial-gradient(ellipse,#d9b2f21a,transparent 65%);opacity:.6}
+@keyframes royal-aurora-one{to{transform:translate3d(-12%,18%,0) rotate(12deg)}}
+@keyframes royal-aurora-two{to{transform:translate3d(18%,-15%,0) rotate(-10deg)}}
+.site-atmosphere[data-paused=true] .aurora-ribbon{animation-play-state:paused}
+.fx-vignette{display:none}.webgl-world{display:none}
+/* Glass is strongest on the two small surfaces framing the hero. */
+.site-header,.site-header.is-scrolled{background:linear-gradient(115deg,#fff4ff1b,#391052a8);border:1px solid #ffffff40;box-shadow:inset 0 1px #ffffff52,inset 0 -1px #a97cc733,0 12px 35px #310f4426}
+.mobile-nav{background:linear-gradient(130deg,#794697f7,#4b1c6ff7);border:1px solid #ffffff3d}
+@supports(backdrop-filter:blur(8px)){.site-header,.site-header.is-scrolled{backdrop-filter:blur(8px) saturate(120%)!important;-webkit-backdrop-filter:blur(8px) saturate(120%)!important}.journey-caption{backdrop-filter:blur(8px) saturate(120%);-webkit-backdrop-filter:blur(8px) saturate(120%)}}
+.enquiry-form,.office-card,.values-grid article,.network-summary,.cta-section,.process-card,.industry-card{background:linear-gradient(130deg,#ffffff15,#3e175466);border-color:#ffffff38;box-shadow:inset 0 1px #ffffff36,0 18px 44px #2e0e4b24}
+.product-toolbar{background:#5a1f82ed;border-block-color:#ffffff3b}
+.brand-statement,.values-section{background:linear-gradient(120deg,#ffffff09,#3f115329);border-color:var(--line)}
+.page-hero{background:linear-gradient(125deg,#ffffff05,#822f9f14)}
+.footer{background:linear-gradient(180deg,#55217b88,#461764d9);border-top:1px solid var(--line)}
+.title-card,.film-bars i{background:#5a1f82}
+.form-grid input:not([type=checkbox]),.form-grid textarea,.form-grid select{background:#3f185c66;border-color:#ffffff4a}
+.form-grid select option{background:#5a1f82}
+.atelier-photograph,.statement-photo,.collection-panel,.page-hero__visual{border-color:#ffffff4d;box-shadow:inset 0 1px #ffffff50,0 22px 50px #35104338}
+/* Selective liquid-glass rims and specular highlights. No displacement filter. */
+.liquid-control,.header-cta,.journey-cta{position:relative;isolation:isolate;overflow:hidden;border:1px solid #ffffff66;box-shadow:inset 0 1px 1px #ffffffb3,inset 0 -2px 3px #ffffff14,0 8px 20px #29113b33}
+.liquid-control:before,.header-cta:before,.journey-cta:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,#ffffff50,transparent 36%,transparent 65%,#ffffff21);box-shadow:inset 1px 1px #ffffff38}
+.liquid-control{display:grid;place-items:center;width:46px;height:46px;flex:none;border-radius:50%;background:linear-gradient(140deg,#ffffff23,#bca1d110);color:#efffc2;transition:transform .22s ease,background .22s ease}
+.liquid-control:hover{transform:translateY(-2px);background:#ffffff2b}
+.liquid-control:disabled{opacity:.35;cursor:default;transform:none}
+.liquid-control:focus-visible,.journey-scroll:focus-visible{outline:2px solid var(--lime);outline-offset:5px}
+/* One viewport, one scroll timeline. No runtime change of animation geometry. */
+.lyca-hero{height:580svh;position:relative;--journey-gutter:clamp(24px,5.6vw,96px)}
+.journey-stage{position:sticky;top:0;height:100svh;min-height:660px;overflow:hidden;isolation:isolate}
+.journey-kicker{position:absolute;top:148px;left:var(--journey-gutter);right:var(--journey-gutter);display:flex;align-items:center;justify-content:space-between;gap:30px;font-size:8px;letter-spacing:.15em;color:#f0dff9}
+.journey-kicker>span:first-child{display:flex;align-items:center;gap:10px}.journey-kicker i{width:5px;height:5px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px #d4ff4d66}
+.journey-heading{position:absolute;left:var(--journey-gutter);top:24%;width:51%;z-index:3;pointer-events:none}
+.journey-heading>.eyebrow{font-size:9px;letter-spacing:.18em;color:#e4c9f4;margin:0 0 24px}
+.journey-heading h1{font-size:clamp(60px,6.6vw,108px);font-weight:500;line-height:1.04;letter-spacing:-.065em;margin:0 0 27px}
+.journey-heading h1 em{font:italic 500 1.17em/.8 LycaEditorial,Georgia,serif;color:var(--lime);letter-spacing:-.045em}
+.journey-heading>p:last-child{font-size:14px;line-height:1.8;color:var(--muted);margin:0}
+.journey-gallery{position:absolute;left:58%;right:7%;top:22%;bottom:11%;z-index:2}
+.journey-card{position:absolute;inset:0;border-radius:26px;overflow:hidden;border:1px solid #ffffff66;background:#38134e;box-shadow:0 28px 60px #2e0e4b40,inset 0 1px #ffffff80;transform-origin:center;will-change:auto}
+.journey-card:not(:first-child){visibility:hidden;opacity:0}
+.journey-card>img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 53%}
+.journey-image-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#290d4655,transparent 50%)}
+.journey-caption{position:absolute;left:17px;right:17px;bottom:17px;padding:22px 23px;border-radius:20px;border:1px solid #ffffff66;background:linear-gradient(120deg,#582472cc,#47185dd9);box-shadow:inset 0 1px #ffffff70,inset 0 -1px #ffffff16,0 10px 26px #21073526}
+.journey-caption>p{font-size:8px;letter-spacing:.15em;color:#efffc3;margin:0 0 12px}
+.journey-caption h2{font:italic 500 clamp(27px,2.4vw,40px)/1.12 LycaEditorial,Georgia,serif;letter-spacing:-.025em;white-space:pre-line;margin:0 44px 0 0;color:#fffdfd}
+.journey-caption>a{position:absolute;right:18px;bottom:20px;width:42px;height:42px}
+.journey-details{position:absolute;left:var(--journey-gutter);top:64%;width:39%;z-index:3;pointer-events:none}
+.journey-copy{position:absolute;left:0;top:0;max-width:420px}
+.journey-copy:not(:first-child){visibility:hidden;opacity:0}
+.journey-copy .eyebrow{font-size:9px;color:#e6ffa1;margin-bottom:12px}
+.journey-copy>p:last-child{font-size:13px;color:var(--muted);line-height:1.9;margin:0}
+.journey-cta{margin-top:145px;pointer-events:auto;border-radius:50px;min-height:48px;font-size:12px}
+.journey-controls{position:absolute;left:var(--journey-gutter);right:var(--journey-gutter);bottom:27px;display:flex;align-items:center;gap:30px;z-index:4}
+.journey-scroll{border:0;padding:0;min-height:44px;display:flex;align-items:center;gap:16px;background:none;color:#f0dff9;font:500 9px Manrope,Arial,sans-serif;letter-spacing:.13em;cursor:pointer}
+.journey-pagination{display:flex;align-items:center;gap:18px;margin-left:auto;font-size:13px}.journey-pagination small{font-size:10px;color:#e2c9f0}
+.journey-progress{height:2px;width:110px;background:#ffffff36}.journey-progress i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:var(--lime)}
+@media(max-height:780px) and (min-width:701px){.journey-heading{top:25%}.journey-heading h1{font-size:76px}.journey-heading>.eyebrow{margin-bottom:14px}.journey-heading>p:last-child{display:none}.journey-kicker{top:128px}.journey-details{top:61%}.journey-cta{margin-top:110px}.journey-gallery{top:25%;bottom:12%}.journey-caption{padding:18px}.journey-caption h2{font-size:31px}}
+@media(max-width:1020px) and (min-width:701px){.journey-heading h1{font-size:clamp(58px,7.4vw,76px)}.journey-gallery{left:56%;right:5%}.journey-caption{left:12px;right:12px;padding:18px}.journey-caption h2{font-size:30px}.journey-kicker span:last-child{display:none}.journey-details{width:40%}}
+@media(max-width:700px){
+ .site-header,.site-header.is-scrolled{background:linear-gradient(120deg,#84529dbb,#552477e6)}
+ .site-header,.site-header.is-scrolled,.journey-caption{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ .aurora-ribbon--one{width:140vw;right:-65%;opacity:.5}.aurora-ribbon--two{width:140vw;left:-60%;opacity:.4}.aurora-ribbon--three{display:none}
+ .lyca-hero{height:530svh;--journey-gutter:22px}.journey-stage{min-height:680px}
+ .journey-kicker{top:110px;font-size:7px;letter-spacing:.1em}.journey-kicker span:last-child{display:none}
+ .journey-heading{top:145px;width:calc(100% - 44px)}.journey-heading>.eyebrow,.journey-heading>p:last-child{display:none}.journey-heading h1{font-size:52px;line-height:1.04;margin:0}
+ .journey-details{top:265px;width:calc(100% - 44px)}.journey-copy{display:none}.journey-cta{margin:0;min-height:32px;padding:4px 13px;font-size:10px;gap:16px;box-shadow:inset 0 1px #ffffff80,0 3px 10px #350f4626}
+ .journey-gallery{top:315px;bottom:96px;left:6%;right:6%}.journey-card{border-radius:23px}.journey-caption{left:12px;right:12px;bottom:12px;padding:17px 18px;border-radius:17px;background:linear-gradient(120deg,#734392dc,#4e1f6be6)}.journey-caption h2{font-size:29px;margin-right:40px}.journey-caption>p{font-size:7px;margin-bottom:9px}.journey-caption>a{width:38px;height:38px;right:14px;bottom:18px}
+ .journey-controls{bottom:20px;gap:15px}.journey-scroll{font-size:7px;gap:8px}.journey-pagination{gap:12px;font-size:11px}.journey-pagination .liquid-control{width:39px;height:44px}.journey-progress{display:none}
+}
+@media(max-width:390px){.journey-heading h1{font-size:49px}}
+@media(max-height:750px) and (max-width:700px){.journey-stage{min-height:620px}.journey-heading{top:132px}.journey-heading h1{font-size:45px}.journey-details{top:236px}.journey-gallery{top:282px;bottom:82px}.journey-controls{bottom:12px}.journey-caption h2{font-size:24px}}
+/* The complete six-image story remains available without scroll-scrubbing. */
+.lyca-hero--static{height:auto}.lyca-hero--static .journey-stage{height:auto;min-height:0;position:relative;padding:170px var(--journey-gutter) 40px;overflow:visible}.lyca-hero--static .journey-kicker{display:none}.lyca-hero--static .journey-heading{position:relative;top:auto;left:auto;width:100%;margin-bottom:35px}.lyca-hero--static .journey-gallery{position:relative;inset:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.lyca-hero--static .journey-card{position:relative;inset:auto;height:500px;visibility:visible;opacity:1;will-change:auto}.lyca-hero--static .journey-details{position:relative;inset:auto;width:auto;margin-top:30px}.lyca-hero--static .journey-copy{display:none}.lyca-hero--static .journey-cta{margin:0}
+@media(max-width:1020px){.lyca-hero--static .journey-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.lyca-hero--static .journey-gallery{grid-template-columns:1fr}.lyca-hero--static .journey-card{height:510px}.lyca-hero--static .journey-heading h1{font-size:48px}}
+@media(prefers-reduced-motion:reduce){.aurora-ribbon{animation:none;will-change:auto}.liquid-control{transition:none}.journey-card{transform:none!important}.site-header,.site-header.is-scrolled,.journey-caption{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+@media(prefers-reduced-transparency:reduce){.site-header,.site-header.is-scrolled,.journey-caption,.mobile-nav{background:#642b88;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+
+.journey-caption--fixed{z-index:10}.journey-caption-copy>p{font-size:8px;letter-spacing:.15em;color:#efffc3;margin:0 0 12px}.journey-caption-copy{animation:caption-arrive .25s ease both}@keyframes caption-arrive{from{opacity:.5;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.journey-caption-copy>p{font-size:7px;margin-bottom:9px}}
+html[data-fx-detail="balanced"] .journey-caption,html[data-fx-detail="balanced"] .site-header,html[data-fx-detail="balanced"] .site-header.is-scrolled{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+@media(prefers-reduced-motion:reduce){.journey-caption-copy{animation:none}}

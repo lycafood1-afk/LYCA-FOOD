@@ -1,0 +1,33 @@
+{
+  "source_document": "Company Brochure & Profile(2).pdf",
+  "source_page": 3,
+  "assets": [
+    {
+      "name": "ECOM",
+      "path": "/images/partners/ecom.png",
+      "pdf_image_xref": 27
+    },
+    {
+      "name": "Foods & Inns",
+      "path": "/images/partners/foods-and-inns.png",
+      "pdf_image_xref": 31
+    },
+    {
+      "name": "Medibel",
+      "path": "/images/partners/medibel.png",
+      "pdf_image_xref": 32
+    },
+    {
+      "name": "Appco",
+      "path": "/images/partners/appco.png",
+      "pdf_image_xref": 34
+    },
+    {
+      "name": "Zentis",
+      "path": "/images/partners/zentis.png",
+      "pdf_image_xref": 29
+    }
+  ],
+  "method": "Original embedded logo images extracted with their PDF transparency masks. No logo redraw or recolouring.",
+  "scope": "The partners page identifies names and logos only. Individual company profiles, countries, contacts and product assignments have not been inferred."
+}

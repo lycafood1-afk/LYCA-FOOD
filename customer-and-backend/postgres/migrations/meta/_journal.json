@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792746800749,
+      "tag": "0000_sturdy_zaran",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792911109607,
+      "tag": "0001_category_management",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792913118959,
+      "tag": "0002_category_lifecycle",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,754 @@
+[
+  {
+    "name": "mango",
+    "author": "Gustavo Fring",
+    "source": "https://www.pexels.com/photo/close-up-photo-of-mango-fruit-7156058/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/7156058/pexels-photo-7156058.jpeg?cs=srgb&dl=pexels-7156058.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/mango-original.jpg",
+    "dimensions": [
+      5760,
+      3840
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-480.webp",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 4248
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-480.jpg",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 7982
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-800.webp",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 10122
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-800.jpg",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 18074
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-1200.webp",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 20234
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-1200.jpg",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 36088
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-1920.webp",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 45090
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/mango-1920.jpg",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 84911
+      }
+    ]
+  },
+  {
+    "name": "coffee-beans",
+    "author": "Pixabay",
+    "source": "https://www.pexels.com/photo/coffee-beans-209476/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/209476/pexels-photo-209476.jpeg?cs=srgb&dl=pexels-209476.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/coffee-beans-original.jpg",
+    "dimensions": [
+      6000,
+      4000
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-480.webp",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 50870
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-480.jpg",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 51926
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-800.webp",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 104766
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-800.jpg",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 117099
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-1200.webp",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 182868
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-1200.jpg",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 219071
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-1920.webp",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 383754
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coffee-beans-1920.jpg",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 474144
+      }
+    ]
+  },
+  {
+    "name": "cocoa-powder",
+    "author": "Monserrat Soldu",
+    "source": "https://www.pexels.com/photo/still-life-with-ingredients-5313354/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/5313354/pexels-photo-5313354.jpeg?cs=srgb&dl=pexels-5313354.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/cocoa-powder-original.jpg",
+    "dimensions": [
+      4810,
+      3207
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-480.webp",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 25292
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-480.jpg",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 31928
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-800.webp",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 57866
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-800.jpg",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 76858
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-1200.webp",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 116450
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-1200.jpg",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 160140
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-1920.webp",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 331142
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/cocoa-powder-1920.jpg",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 407932
+      }
+    ]
+  },
+  {
+    "name": "coconut",
+    "author": "elif tekkaya",
+    "source": "https://www.pexels.com/photo/coconut-cut-in-half-4395067/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/4395067/pexels-photo-4395067.jpeg?cs=srgb&dl=pexels-4395067.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/coconut-original.jpg",
+    "dimensions": [
+      4896,
+      3268
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-480.webp",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 14122
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-480.jpg",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 23364
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-800.webp",
+        "dimensions": [
+          800,
+          534
+        ],
+        "bytes": 30826
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-800.jpg",
+        "dimensions": [
+          800,
+          534
+        ],
+        "bytes": 54029
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-1200.webp",
+        "dimensions": [
+          1200,
+          801
+        ],
+        "bytes": 58384
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-1200.jpg",
+        "dimensions": [
+          1200,
+          801
+        ],
+        "bytes": 105602
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-1920.webp",
+        "dimensions": [
+          1920,
+          1282
+        ],
+        "bytes": 120584
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/coconut-1920.jpg",
+        "dimensions": [
+          1920,
+          1282
+        ],
+        "bytes": 228366
+      }
+    ]
+  },
+  {
+    "name": "fruit-preparations",
+    "author": "ROMAN ODINTSOV",
+    "source": "https://www.pexels.com/photo/a-strawberry-jam-on-the-bowl-6574667/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/6574667/pexels-photo-6574667.jpeg?cs=srgb&dl=pexels-6574667.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/fruit-preparations-original.jpg",
+    "dimensions": [
+      2496,
+      3744
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-480.webp",
+        "dimensions": [
+          480,
+          720
+        ],
+        "bytes": 37852
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-480.jpg",
+        "dimensions": [
+          480,
+          720
+        ],
+        "bytes": 54202
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-800.webp",
+        "dimensions": [
+          800,
+          1200
+        ],
+        "bytes": 74518
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-800.jpg",
+        "dimensions": [
+          800,
+          1200
+        ],
+        "bytes": 119531
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-1200.webp",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "bytes": 126798
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-1200.jpg",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "bytes": 224096
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-1920.webp",
+        "dimensions": [
+          1920,
+          2880
+        ],
+        "bytes": 233010
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/fruit-preparations-1920.jpg",
+        "dimensions": [
+          1920,
+          2880
+        ],
+        "bytes": 482054
+      }
+    ]
+  },
+  {
+    "name": "natural-colour-turmeric",
+    "author": "Karl Solano",
+    "source": "https://www.pexels.com/photo/close-up-shot-of-turmeric-powder-6220709/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/6220709/pexels-photo-6220709.jpeg?cs=srgb&dl=pexels-6220709.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-original.jpg",
+    "dimensions": [
+      3936,
+      2624
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-480.webp",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 31374
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-480.jpg",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 36668
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-800.webp",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 66590
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-800.jpg",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 81836
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-1200.webp",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 119492
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-1200.jpg",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 157263
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-1920.webp",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 292178
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/natural-colour-turmeric-1920.jpg",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 368526
+      }
+    ]
+  },
+  {
+    "name": "berries",
+    "author": "Lisa from Pexels",
+    "source": "https://www.pexels.com/photo/photography-of-strawberries-and-blueberries-on-bowl-1147993/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/1147993/pexels-photo-1147993.jpeg?cs=srgb&dl=pexels-1147993.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/berries-original.jpg",
+    "dimensions": [
+      4000,
+      6000
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-480.webp",
+        "dimensions": [
+          480,
+          720
+        ],
+        "bytes": 85016
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-480.jpg",
+        "dimensions": [
+          480,
+          720
+        ],
+        "bytes": 92174
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-800.webp",
+        "dimensions": [
+          800,
+          1200
+        ],
+        "bytes": 196010
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-800.jpg",
+        "dimensions": [
+          800,
+          1200
+        ],
+        "bytes": 224844
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-1200.webp",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "bytes": 371244
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-1200.jpg",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "bytes": 449019
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-1920.webp",
+        "dimensions": [
+          1920,
+          2880
+        ],
+        "bytes": 802694
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/berries-1920.jpg",
+        "dimensions": [
+          1920,
+          2880
+        ],
+        "bytes": 1019104
+      }
+    ]
+  },
+  {
+    "name": "hero-citrus",
+    "author": "Dmitry Demidov",
+    "source": "https://www.pexels.com/photo/close-up-photo-of-orange-fruits-3903202/",
+    "license": "https://www.pexels.com/license/",
+    "download_url": "https://images.pexels.com/photos/3903202/pexels-photo-3903202.jpeg?cs=srgb&dl=pexels-3903202.jpg&fm=jpg",
+    "file": "/workspace/scratch/lyca-assets/hero-citrus-original.jpg",
+    "dimensions": [
+      4000,
+      2667
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-480.webp",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 24476
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-480.jpg",
+        "dimensions": [
+          480,
+          320
+        ],
+        "bytes": 30979
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-800.webp",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 53072
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-800.jpg",
+        "dimensions": [
+          800,
+          533
+        ],
+        "bytes": 72290
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-1200.webp",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 94010
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-1200.jpg",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "bytes": 137122
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-1920.webp",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 199392
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-1920.jpg",
+        "dimensions": [
+          1920,
+          1280
+        ],
+        "bytes": 314391
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-2560.webp",
+        "dimensions": [
+          2560,
+          1707
+        ],
+        "bytes": 389204
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-2560.jpg",
+        "dimensions": [
+          2560,
+          1707
+        ],
+        "bytes": 577670
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-3840.webp",
+        "dimensions": [
+          3840,
+          2560
+        ],
+        "bytes": 893206
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-3840.jpg",
+        "dimensions": [
+          3840,
+          2560
+        ],
+        "bytes": 1375122
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-4k-16x9.jpg",
+        "dimensions": [
+          3840,
+          2160
+        ],
+        "bytes": 1412097,
+        "edit": "center crop 16:9"
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/hero-citrus-4k-16x9.webp",
+        "dimensions": [
+          3840,
+          2160
+        ],
+        "bytes": 986864,
+        "edit": "center crop 16:9"
+      }
+    ]
+  },
+  {
+    "name": "dairy-powder",
+    "author": "ProjectManhattan; crop by Kittycataclysm",
+    "source": "https://commons.wikimedia.org/wiki/File:Milk_powder_cropped.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Milk_powder_cropped.jpg",
+    "file": "/workspace/scratch/lyca-assets/dairy-powder-original.jpg",
+    "dimensions": [
+      2204,
+      1662
+    ],
+    "variants": [
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-480.webp",
+        "dimensions": [
+          480,
+          362
+        ],
+        "bytes": 23732
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-480.jpg",
+        "dimensions": [
+          480,
+          362
+        ],
+        "bytes": 31026
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-800.webp",
+        "dimensions": [
+          800,
+          603
+        ],
+        "bytes": 61924
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-800.jpg",
+        "dimensions": [
+          800,
+          603
+        ],
+        "bytes": 82249
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-1200.webp",
+        "dimensions": [
+          1200,
+          905
+        ],
+        "bytes": 119580
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-1200.jpg",
+        "dimensions": [
+          1200,
+          905
+        ],
+        "bytes": 174533
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-1920.webp",
+        "dimensions": [
+          1920,
+          1448
+        ],
+        "bytes": 249442
+      },
+      {
+        "file": "/workspace/scratch/lyca-assets/dairy-powder-1920.jpg",
+        "dimensions": [
+          1920,
+          1448
+        ],
+        "bytes": 395442
+      }
+    ]
+  }
+]

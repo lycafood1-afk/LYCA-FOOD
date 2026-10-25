@@ -1,0 +1,88 @@
+{
+  "categories": [
+    {
+      "id": "juice-concentrates",
+      "title": "Juice Concentrates, Purees, Pulps & Pastes",
+      "shortTitle": "Juice & Fruit Ingredients",
+      "image": "/images/mango.webp",
+      "imageAlt": "Mango juice and freshly sliced mango against a dark backdrop",
+      "groups": [
+        "Mango",
+        "Guava",
+        "Tomato",
+        "Chilli, Pepper, Ginger & Garlic",
+        "Other Concentrates & Purees"
+      ]
+    },
+    {
+      "id": "coconut-products",
+      "title": "Coconut Products",
+      "shortTitle": "Coconut Products",
+      "image": "/images/coconut.webp",
+      "imageAlt": "Fresh coconut halves and pieces on a dark surface",
+      "groups": [
+        "Coconut Range"
+      ]
+    },
+    {
+      "id": "coffee-cocoa",
+      "title": "Coffee & Cocoa",
+      "shortTitle": "Coffee & Cocoa",
+      "image": "/images/coffee.webp",
+      "imageAlt": "Roasted coffee beans on dark stone",
+      "groups": [
+        "Coffee",
+        "Cocoa"
+      ]
+    },
+    {
+      "id": "dairy-ingredients",
+      "title": "Dairy Ingredients",
+      "shortTitle": "Dairy Ingredients",
+      "image": "/images/dairy.webp",
+      "imageAlt": "Fresh milk pouring into a glass against black",
+      "groups": [
+        "Dairy Range"
+      ]
+    },
+    {
+      "id": "fruit-preparations",
+      "title": "Fruit Preparations",
+      "shortTitle": "Fruit Preparations",
+      "image": "/images/berries.webp",
+      "imageAlt": "Raspberries reflected on a black surface",
+      "groups": [
+        "Applications"
+      ]
+    },
+    {
+      "id": "spray-dried-powders",
+      "title": "Spray-Dried Powders",
+      "shortTitle": "Spray-Dried Powders",
+      "image": "/images/powder.webp",
+      "imageAlt": "Fresh mangoes, a source fruit for the fruit powder range",
+      "groups": [
+        "Fruit Powders",
+        "Specialty Powders",
+        "Natural Colour Powders"
+      ]
+    },
+    {
+      "id": "food-colours",
+      "title": "Food Colours",
+      "shortTitle": "Food Colours",
+      "image": "/images/colors.webp",
+      "imageAlt": "Deep red dried hibiscus flowers, a botanical colour source",
+      "groups": [
+        "Natural Colour Range"
+      ]
+    }
+  ],
+  "partners": [
+    "ECOM",
+    "Foods & Inns",
+    "Medibel",
+    "Appco",
+    "Zentis"
+  ]
+}
